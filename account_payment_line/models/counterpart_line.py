@@ -40,7 +40,7 @@ class AccountPaymentCounterLinesAbstract(models.AbstractModel):
     writeoff_account_id = fields.Many2one(
         comodel_name="account.account",
         string="Write-off account",
-        domain="[('deprecated', '=', False), ('company_ids', '=', company_id)]",
+        domain="[('active', '=', True), ('company_ids', '=', company_id)]",
     )
     writeoff_amount = fields.Monetary(
         required=False,

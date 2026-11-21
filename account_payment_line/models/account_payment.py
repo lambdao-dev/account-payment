@@ -18,7 +18,7 @@ class AccountPayment(models.Model):
     writeoff_account_id = fields.Many2one(
         "account.account",
         string="Write-off Account",
-        domain="[('deprecated', '=', False), ('company_ids', '=', company_id)]",
+        domain="[('active', '=', True), ('company_ids', '=', company_id)]",
     )
 
     def _process_post_reconcile(self):
